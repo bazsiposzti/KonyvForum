@@ -80,12 +80,13 @@
     </div>
 
     <div class="mobile-menu" v-if="isMenuOpen">
+      <div class="mobile-search"></div>
         <a href="#" @click="toggleMenu">Kezdőlap</a>
         <a href="#" @click="toggleMenu">Fórum</a>
         <a href="#" @click="toggleMenu">Aktivitás</a>
 
         <div class="mobile-buttons">
-            <button>Belépés</button>
+            <button @click="toggleLogin(); toggleMenu()">Belépés</button>
             <button>Regisztráció</button>
         </div>
     </div>
@@ -264,10 +265,27 @@
 
 @media (max-width: 768px){
     .desktop-view {
-        display: none;
+        display: none !important;
     }
     .hamburger{
         display: flex;
+    }
+
+    .login-form-dropdown{
+      top: 60px;
+      right: 0;
+      left: 0;
+      width: 100%;
+      border-radius: 0 0 15px 15px;
+      border-left: none;
+      border-right: none;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+      box-sizing: border-box;
+    }
+    .login-form-dropdown,
+    .submit-btn{
+      padding: 12px;
+      font-size: 16px;
     }
 }
 
@@ -288,6 +306,18 @@
     .mobile-menu a:hover {
         opacity: 0.8;
     }
+}
+
+.mobile-search input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background-color: #0d1117;
+  color: white;
+  color: white;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 /* Belépés mező ha rákattintva van */
